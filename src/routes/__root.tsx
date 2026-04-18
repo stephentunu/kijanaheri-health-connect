@@ -1,4 +1,4 @@
-import { Outlet, Link, createRootRoute, HeadContent, Scripts, useLocation } from "@tanstack/react-router";
+import { Outlet, Link, createRootRoute, useLocation } from "@tanstack/react-router";
 import { Toaster } from "sonner";
 import { I18nProvider, useI18n } from "@/lib/i18n";
 import { CLINIC } from "@/lib/clinic-data";
@@ -13,8 +13,6 @@ import {
   SheetTitle,
 } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
-
-import appCss from "../styles.css?url";
 
 function NotFoundComponent() {
   return (
@@ -39,46 +37,9 @@ function NotFoundComponent() {
 }
 
 export const Route = createRootRoute({
-  head: () => ({
-    meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Kijanaheri Medical Centre | Quality healthcare in Kenya" },
-      { name: "description", content: "Outpatient, maternity, laboratory and more. Book an appointment online with trusted clinicians at Kijanaheri Medical Centre." },
-      { name: "theme-color", content: "#0052FF" },
-      { property: "og:title", content: "Kijanaheri Medical Centre" },
-      { property: "og:description", content: "Quality healthcare for every Kenyan family. Book online in under a minute." },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-    links: [
-      { rel: "stylesheet", href: appCss },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "" },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap",
-      },
-    ],
-  }),
-  shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
 });
-
-function RootShell({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="en">
-      <head>
-        <HeadContent />
-      </head>
-      <body>
-        {children}
-        <Scripts />
-      </body>
-    </html>
-  );
-}
 
 function RootComponent() {
   return (
