@@ -7,7 +7,7 @@ export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
       { title: "Services | Kijanaheri Medical Centre" },
-      { name: "description", content: "Outpatient, maternity, laboratory, dental, pediatrics and pharmacy services in Nairobi." },
+      { name: "description", content: "Outpatient, maternity, laboratory, dental, pediatrics and pharmacy services on Malindi-Lamu Road." },
       { property: "og:title", content: "Our Services — Kijanaheri Medical Centre" },
       { property: "og:description", content: "Comprehensive outpatient and specialist care under one roof." },
     ],
