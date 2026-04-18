@@ -6,9 +6,9 @@ export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Contact | Kijanaheri Medical Centre" },
-      { name: "description", content: "Visit, call or message Kijanaheri Medical Centre. Open 24/7 for emergencies." },
+      { name: "description", content: "Visit, call or message Kijanaheri Medical Centre on Malindi-Lamu Road. Open 24/7 for emergencies." },
       { property: "og:title", content: "Contact Kijanaheri Medical Centre" },
-      { property: "og:description", content: "Reach us by phone, WhatsApp, or visit our clinic in Nairobi." },
+      { property: "og:description", content: "Reach us by phone, WhatsApp, or visit our clinic on Malindi-Lamu Road." },
     ],
   }),
   component: ContactPage,

@@ -20,7 +20,7 @@ function AboutPage() {
         <span className="text-xs font-semibold uppercase tracking-wider text-primary">About us</span>
         <h1 className="mt-2 text-4xl font-bold tracking-tight sm:text-5xl">A clinic built around our community</h1>
         <p className="mt-4 text-lg text-muted-foreground">
-          For over 25 years, Kijanaheri Medical Centre has provided dignified, affordable healthcare to families across Nairobi and beyond.
+          For over 25 years, Kijanaheri Medical Centre has provided dignified, affordable healthcare to families along the Malindi-Lamu Road and beyond.
         </p>
       </header>
 
