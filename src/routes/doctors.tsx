@@ -25,34 +25,37 @@ function DoctorsPage() {
         <p className="mt-3 text-muted-foreground">{t("doctors.sub")}</p>
       </header>
 
-      <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {doctors.map((d) => (
-          <article key={d.id} className="rounded-2xl border border-border bg-card p-6 shadow-[var(--shadow-soft)]">
-            <div className="flex items-center gap-4">
-              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[image:var(--gradient-brand)] font-display text-xl font-bold text-white">
-                {d.initials}
-              </div>
-              <div>
-                <h2 className="text-lg font-semibold">{d.name}</h2>
-                <div className="text-xs text-muted-foreground">{d.title}</div>
-                <div className="mt-1 text-sm font-medium text-primary">{d.specialty}</div>
-              </div>
+          <article key={d.id} className="group overflow-hidden rounded-2xl border border-border bg-card shadow-[var(--shadow-soft)] transition hover:shadow-[var(--shadow-card)]">
+            <div className="aspect-[4/3] overflow-hidden bg-muted">
+              <img
+                src={d.photo}
+                alt={`Portrait of ${d.name}, ${d.specialty}`}
+                loading="lazy"
+                className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+              />
             </div>
-            <p className="mt-4 text-sm text-muted-foreground">{d.bio}</p>
-            <div className="mt-4 flex flex-wrap gap-1.5">
-              {d.serviceIds.map((sid) => {
-                const s = services.find((x) => x.id === sid);
-                if (!s) return null;
-                return (
-                  <span key={sid} className="rounded-full bg-primary/8 px-2.5 py-1 text-xs font-medium text-primary">
-                    {t(s.titleKey)}
-                  </span>
-                );
-              })}
+            <div className="p-6">
+              <h2 className="text-lg font-semibold">{d.name}</h2>
+              <div className="text-xs text-muted-foreground">{d.title}</div>
+              <div className="mt-1 text-sm font-medium text-primary">{d.specialty}</div>
+              <p className="mt-3 text-sm text-muted-foreground">{d.bio}</p>
+              <div className="mt-4 flex flex-wrap gap-1.5">
+                {d.serviceIds.map((sid) => {
+                  const s = services.find((x) => x.id === sid);
+                  if (!s) return null;
+                  return (
+                    <span key={sid} className="rounded-full bg-primary/8 px-2.5 py-1 text-xs font-medium text-primary">
+                      {t(s.titleKey)}
+                    </span>
+                  );
+                })}
+              </div>
+              <Button asChild className="mt-5 w-full bg-primary text-primary-foreground hover:bg-[var(--primary-hover)]">
+                <Link to="/book" search={{ doctor: d.id }}>{t("cta.book")}</Link>
+              </Button>
             </div>
-            <Button asChild className="mt-5 w-full bg-primary text-primary-foreground hover:bg-[var(--primary-hover)]">
-              <Link to="/book" search={{ doctor: d.id }}>{t("cta.book")}</Link>
-            </Button>
           </article>
         ))}
       </div>
