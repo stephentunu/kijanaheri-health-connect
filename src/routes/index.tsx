@@ -2,8 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import heroImg from "@/assets/hero-doctor.jpg";
 import { useI18n } from "@/lib/i18n";
 import { Button } from "@/components/ui/button";
-import { services, doctors } from "@/lib/clinic-data";
-import { ArrowRight, ShieldCheck, Clock, Award, Phone } from "lucide-react";
+import { services, doctors, testimonials, CLINIC } from "@/lib/clinic-data";
+import { ArrowRight, ShieldCheck, Clock, Award, Phone, Star, AlertCircle } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -21,6 +21,19 @@ function HomePage() {
   const { t } = useI18n();
   return (
     <>
+      {/* Emergency strip — inspired by Nairobi Hospital / AKUH */}
+      <div className="bg-destructive text-destructive-foreground">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-4 py-2 text-sm sm:flex-row sm:px-6">
+          <div className="flex items-center gap-2 font-medium">
+            <AlertCircle className="h-4 w-4" />
+            24/7 Emergency line
+          </div>
+          <a href={`tel:${CLINIC.emergency}`} className="flex items-center gap-2 font-semibold underline-offset-2 hover:underline">
+            <Phone className="h-4 w-4" /> {CLINIC.emergency}
+          </a>
+        </div>
+      </div>
+
       {/* Hero */}
       <section className="relative overflow-hidden bg-[image:var(--gradient-soft)]">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-2 md:gap-12 md:py-20 lg:py-24">
@@ -137,17 +150,44 @@ function HomePage() {
             {doctors.map((d) => (
               <div
                 key={d.id}
-                className="rounded-2xl bg-background p-5 shadow-[var(--shadow-soft)] ring-1 ring-border transition hover:shadow-[var(--shadow-card)]"
+                className="overflow-hidden rounded-2xl bg-background shadow-[var(--shadow-soft)] ring-1 ring-border transition hover:shadow-[var(--shadow-card)]"
               >
-                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[image:var(--gradient-brand)] font-display text-lg font-bold text-white">
-                  {d.initials}
+                <div className="aspect-[4/3] overflow-hidden bg-muted">
+                  <img src={d.photo} alt={`Portrait of ${d.name}`} loading="lazy" className="h-full w-full object-cover" />
                 </div>
-                <div className="mt-4 text-base font-semibold">{d.name}</div>
-                <div className="text-xs text-muted-foreground">{d.title}</div>
-                <div className="mt-2 text-sm font-medium text-primary">{d.specialty}</div>
+                <div className="p-5">
+                  <div className="text-base font-semibold">{d.name}</div>
+                  <div className="text-xs text-muted-foreground">{d.title}</div>
+                  <div className="mt-2 text-sm font-medium text-primary">{d.specialty}</div>
+                </div>
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Testimonials — inspired by Mediheal & AKUH patient stories */}
+      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20">
+        <div className="max-w-2xl">
+          <span className="text-xs font-semibold uppercase tracking-wider text-primary">Patient stories</span>
+          <h2 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">Trusted by families across the coast</h2>
+          <p className="mt-2 text-muted-foreground">Real experiences from people we've cared for.</p>
+        </div>
+        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {testimonials.map((tm) => (
+            <figure key={tm.id} className="rounded-2xl border border-border bg-card p-6 shadow-[var(--shadow-soft)]">
+              <div className="flex gap-0.5 text-accent">
+                {Array.from({ length: tm.rating }).map((_, i) => (
+                  <Star key={i} className="h-4 w-4 fill-current" />
+                ))}
+              </div>
+              <blockquote className="mt-3 text-sm leading-relaxed text-foreground">"{tm.quote}"</blockquote>
+              <figcaption className="mt-4 border-t border-border pt-3">
+                <div className="text-sm font-semibold">{tm.name}</div>
+                <div className="text-xs text-muted-foreground">{tm.role}</div>
+              </figcaption>
+            </figure>
+          ))}
         </div>
       </section>
 
