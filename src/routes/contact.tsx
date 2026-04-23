@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { CLINIC } from "@/lib/clinic-data";
 import { Phone, Mail, MapPin, MessageCircle, Clock } from "lucide-react";
+import clinicFront from "@/assets/clinic-front.jpg";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -17,12 +18,21 @@ export const Route = createFileRoute("/contact")({
 function ContactPage() {
   return (
     <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 sm:py-16">
-      <header className="max-w-2xl">
-        <span className="text-xs font-semibold uppercase tracking-wider text-primary">Contact</span>
-        <h1 className="mt-2 text-4xl font-bold tracking-tight sm:text-5xl">We're here to help</h1>
-        <p className="mt-3 text-muted-foreground">
-          Reach out for appointments, follow-ups, or anything else. Our front desk responds within minutes.
-        </p>
+      <header className="grid gap-8 md:grid-cols-[1.1fr_1fr] md:items-center">
+        <div>
+          <span className="text-xs font-semibold uppercase tracking-wider text-primary">Contact</span>
+          <h1 className="mt-2 text-4xl font-bold tracking-tight sm:text-5xl">We're here to help</h1>
+          <p className="mt-3 text-muted-foreground">
+            Reach out for appointments, follow-ups, or anything else. Our front desk responds within minutes.
+          </p>
+        </div>
+        <div className="overflow-hidden rounded-2xl shadow-[var(--shadow-soft)] ring-1 ring-border">
+          <img
+            src={clinicFront}
+            alt="Kijanaheri Medical Centre — look for our signage on Malindi-Lamu Road"
+            className="aspect-[4/3] w-full object-cover"
+          />
+        </div>
       </header>
 
       <div className="mt-10 grid gap-5 sm:grid-cols-2">

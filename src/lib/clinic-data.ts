@@ -3,6 +3,12 @@ import drNjeri from "@/assets/doctor-njeri.jpg";
 import drOtieno from "@/assets/doctor-otieno.jpg";
 import drWanjiku from "@/assets/doctor-wanjiku.jpg";
 import drKamau from "@/assets/doctor-kamau.jpg";
+import imgOutpatient from "@/assets/doctor-room.jpg";
+import imgMaternity from "@/assets/maternity-wing.jpg";
+import imgLab from "@/assets/lab-tech.jpg";
+import imgPharmacy from "@/assets/pharmacy.jpg";
+import imgWard from "@/assets/ward.jpg";
+import imgReception from "@/assets/reception.jpg";
 
 export interface Service {
   id: string;
@@ -10,15 +16,16 @@ export interface Service {
   titleKey: string;
   descKey: string;
   priceKES: number;
+  photo: string;
 }
 
 export const services: Service[] = [
-  { id: "outpatient", icon: Stethoscope, titleKey: "services.outpatient", descKey: "services.outpatient.desc", priceKES: 1500 },
-  { id: "maternity", icon: Baby, titleKey: "services.maternity", descKey: "services.maternity.desc", priceKES: 2500 },
-  { id: "lab", icon: FlaskConical, titleKey: "services.lab", descKey: "services.lab.desc", priceKES: 1000 },
-  { id: "pharmacy", icon: Pill, titleKey: "services.pharmacy", descKey: "services.pharmacy.desc", priceKES: 500 },
-  { id: "dental", icon: Smile, titleKey: "services.dental", descKey: "services.dental.desc", priceKES: 2000 },
-  { id: "pediatrics", icon: HeartPulse, titleKey: "services.pediatrics", descKey: "services.pediatrics.desc", priceKES: 1800 },
+  { id: "outpatient", icon: Stethoscope, titleKey: "services.outpatient", descKey: "services.outpatient.desc", priceKES: 1500, photo: imgOutpatient },
+  { id: "maternity", icon: Baby, titleKey: "services.maternity", descKey: "services.maternity.desc", priceKES: 2500, photo: imgMaternity },
+  { id: "lab", icon: FlaskConical, titleKey: "services.lab", descKey: "services.lab.desc", priceKES: 1000, photo: imgLab },
+  { id: "pharmacy", icon: Pill, titleKey: "services.pharmacy", descKey: "services.pharmacy.desc", priceKES: 500, photo: imgPharmacy },
+  { id: "dental", icon: Smile, titleKey: "services.dental", descKey: "services.dental.desc", priceKES: 2000, photo: imgReception },
+  { id: "pediatrics", icon: HeartPulse, titleKey: "services.pediatrics", descKey: "services.pediatrics.desc", priceKES: 1800, photo: imgWard },
 ];
 
 export interface Doctor {
