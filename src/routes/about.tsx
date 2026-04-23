@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ShieldCheck, HeartHandshake, Sparkles } from "lucide-react";
+import { ShieldCheck, HeartHandshake, Sparkles, Target, Eye, Lightbulb, Award, ScrollText } from "lucide-react";
 import clinicFront from "@/assets/clinic-front.jpg";
 import entranceImg from "@/assets/clinic-entrance.jpg";
 import receptionImg from "@/assets/reception.jpg";
@@ -82,11 +82,92 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="mt-14 rounded-3xl bg-[var(--primary-soft)]/50 p-8 sm:p-10">
-        <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">Our mission</h2>
-        <p className="mt-3 max-w-3xl text-muted-foreground">
-          To deliver accessible, evidence-based healthcare with warmth and respect — empowering every patient to live a healthier life.
-        </p>
+      {/* Mission & Vision */}
+      <section className="mt-16">
+        <div className="text-center">
+          <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary">
+            <ScrollText className="h-3.5 w-3.5" /> What drives us
+          </span>
+          <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Mission &amp; Vision</h2>
+          <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
+            The promises that shape every interaction, every diagnosis, and every patient journey at Kijanaheri.
+          </p>
+        </div>
+
+        <div className="mt-10 grid gap-6 lg:grid-cols-2">
+          {/* Mission card */}
+          <article className="group relative overflow-hidden rounded-3xl border border-border bg-card p-8 shadow-[var(--shadow-soft)] transition hover:shadow-[var(--shadow-elev)] sm:p-10">
+            <div className="absolute -right-16 -top-16 h-48 w-48 rounded-full bg-primary/10 blur-3xl transition group-hover:bg-primary/20" />
+            <div className="relative">
+              <div className="flex items-center gap-3">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-primary/70 text-primary-foreground shadow-md">
+                  <Target className="h-6 w-6" />
+                </div>
+                <h3 className="text-sm font-semibold uppercase tracking-widest text-primary">Our Mission</h3>
+              </div>
+              <p className="mt-6 text-xl font-semibold leading-snug tracking-tight sm:text-2xl">
+                To build long-term relationships with our customers and provide exceptional services through
+                <span className="text-primary"> innovation</span> and
+                <span className="text-primary"> advanced technology</span>.
+              </p>
+            </div>
+          </article>
+
+          {/* Vision card */}
+          <article className="group relative overflow-hidden rounded-3xl border border-border bg-card p-8 shadow-[var(--shadow-soft)] transition hover:shadow-[var(--shadow-elev)] sm:p-10">
+            <div className="absolute -left-16 -bottom-16 h-48 w-48 rounded-full bg-primary/10 blur-3xl transition group-hover:bg-primary/20" />
+            <div className="relative">
+              <div className="flex items-center gap-3">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-primary/70 text-primary-foreground shadow-md">
+                  <Eye className="h-6 w-6" />
+                </div>
+                <h3 className="text-sm font-semibold uppercase tracking-widest text-primary">Our Vision</h3>
+              </div>
+              <p className="mt-6 text-xl font-semibold leading-snug tracking-tight sm:text-2xl">
+                To be an <span className="text-primary">ultra-modern health facility</span> that provides enhanced services by offering
+                <span className="text-primary"> quality, timely and affordable</span> care that builds customer relationships and sustains profitability.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      {/* Core Values */}
+      <section className="mt-16 overflow-hidden rounded-3xl bg-gradient-to-br from-[var(--primary-soft)] via-card to-[var(--primary-soft)]/40 p-8 ring-1 ring-border sm:p-12">
+        <div className="text-center">
+          <span className="inline-flex items-center gap-2 rounded-full bg-background/80 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary backdrop-blur">
+            <Award className="h-3.5 w-3.5" /> Core values
+          </span>
+          <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">The principles we live by</h2>
+          <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
+            More than words on a wall — these values guide every decision our team makes.
+          </p>
+        </div>
+
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {[
+            { icon: Lightbulb, t: "Creativity", d: "We approach every patient need with fresh thinking and care designed around them." },
+            { icon: Sparkles, t: "Invention & Innovation", d: "Embracing modern tools and methods to deliver smarter, faster, better outcomes." },
+            { icon: ShieldCheck, t: "Honesty", d: "Transparent diagnoses, fair pricing, and clear communication — always." },
+            { icon: HeartHandshake, t: "Integrity", d: "Doing what's right for our patients, even when no one is watching." },
+          ].map((v, i) => (
+            <div
+              key={v.t}
+              className="group relative overflow-hidden rounded-2xl border border-border bg-card/80 p-6 backdrop-blur transition hover:-translate-y-1 hover:shadow-[var(--shadow-elev)]"
+            >
+              <div className="absolute right-3 top-3 text-5xl font-black text-primary/5 transition group-hover:text-primary/10">
+                0{i + 1}
+              </div>
+              <div className="relative">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary transition group-hover:bg-primary group-hover:text-primary-foreground">
+                  <v.icon className="h-5 w-5" />
+                </div>
+                <h3 className="mt-4 text-lg font-bold tracking-tight">{v.t}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{v.d}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </section>
     </div>
   );
