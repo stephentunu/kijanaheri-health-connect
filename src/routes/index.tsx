@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import heroImg from "@/assets/hero-doctor.jpg";
+import clinicExterior from "@/assets/clinic-exterior.jpg";
 import { useI18n } from "@/lib/i18n";
 import { Button } from "@/components/ui/button";
 import { services, doctors, testimonials, CLINIC } from "@/lib/clinic-data";
@@ -35,8 +36,13 @@ function HomePage() {
       </div>
 
       {/* Hero */}
-      <section className="relative overflow-hidden bg-[image:var(--gradient-soft)]">
-        <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-2 md:gap-12 md:py-20 lg:py-24">
+      <section
+        className="relative overflow-hidden bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${clinicExterior})` }}
+      >
+        {/* Overlay for legibility */}
+        <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/85 to-background/40 md:from-background/90 md:via-background/70 md:to-background/20" />
+        <div className="relative mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-2 md:gap-12 md:py-20 lg:py-24">
           <div className="flex flex-col justify-center">
             <span className="inline-flex w-fit items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-primary">
               <span className="h-1.5 w-1.5 rounded-full bg-primary" />
