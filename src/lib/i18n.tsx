@@ -8,6 +8,7 @@ export const dict: Dict = {
   "nav.home": { en: "Home", sw: "Mwanzo" },
   "nav.services": { en: "Services", sw: "Huduma" },
   "nav.doctors": { en: "Doctors", sw: "Madaktari" },
+  "nav.director": { en: "Director", sw: "Mkurugenzi" },
   "nav.about": { en: "About", sw: "Kuhusu" },
   "nav.contact": { en: "Contact", sw: "Wasiliana" },
   "cta.book": { en: "Book Appointment", sw: "Weka Miadi" },
