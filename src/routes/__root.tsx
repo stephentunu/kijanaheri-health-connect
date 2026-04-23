@@ -87,6 +87,7 @@ const navLinks = [
   { to: "/" as const, key: "nav.home" },
   { to: "/services" as const, key: "nav.services" },
   { to: "/doctors" as const, key: "nav.doctors" },
+  { to: "/director" as const, key: "nav.director" },
   { to: "/about" as const, key: "nav.about" },
   { to: "/contact" as const, key: "nav.contact" },
 ];

@@ -67,9 +67,14 @@ export const TIME_SLOTS = [
 
 export const CLINIC = {
   name: "Kijanaheri Medical Centre",
-  phone: "+254 700 000 000",
-  whatsapp: "254700000000",
-  emergency: "+254 711 111 111",
+  phone: "0721230505",
+  whatsapp: "254721230505",
+  emergency: "0721230505",
   email: "care@kijanaheri.co.ke",
   address: "Malindi-Lamu Road, Kenya",
+  director: {
+    name: "Dr. David Shungu Mathole",
+    title: "Facility Director",
+    phone: "0721230505",
+  },
 };
