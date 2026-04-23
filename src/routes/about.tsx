@@ -105,10 +105,10 @@ function AboutPage() {
                 </div>
                 <h3 className="text-sm font-semibold uppercase tracking-widest text-primary">Our Mission</h3>
               </div>
-              <p className="mt-6 text-xl font-semibold leading-snug tracking-tight sm:text-2xl">
-                To build long-term relationships with our customers and provide exceptional services through
-                <span className="text-primary"> innovation</span> and
-                <span className="text-primary"> advanced technology</span>.
+              <p className="mt-6 text-lg font-bold uppercase leading-relaxed tracking-wide sm:text-xl">
+                TO BUILD LONG-TERM RELATIONSHIPS WITH OUR CUSTOMERS AND PROVIDE EXCEPTIONAL SERVICES THROUGH
+                <span className="text-primary"> INNOVATION</span> AND
+                <span className="text-primary"> ADVANCED TECHNOLOGY</span>.
               </p>
             </div>
           </article>
@@ -123,9 +123,9 @@ function AboutPage() {
                 </div>
                 <h3 className="text-sm font-semibold uppercase tracking-widest text-primary">Our Vision</h3>
               </div>
-              <p className="mt-6 text-xl font-semibold leading-snug tracking-tight sm:text-2xl">
-                To be an <span className="text-primary">ultra-modern health facility</span> that provides enhanced services by offering
-                <span className="text-primary"> quality, timely and affordable</span> care that builds customer relationships and sustains profitability.
+              <p className="mt-6 text-lg font-bold uppercase leading-relaxed tracking-wide sm:text-xl">
+                TO BE AN <span className="text-primary">ULTRA-MODERN HEALTH FACILITY</span> THAT PROVIDES ENHANCED SERVICES BY OFFERING
+                <span className="text-primary"> QUALITY, TIMELY AND AFFORDABLE</span> CARE THAT BUILDS CUSTOMER RELATIONSHIPS AND SUSTAINS PROFITABILITY.
               </p>
             </div>
           </article>
