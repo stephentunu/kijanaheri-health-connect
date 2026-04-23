@@ -1,6 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import heroImg from "@/assets/hero-doctor.jpg";
+import heroImg from "@/assets/lab-tech.jpg";
 import clinicExterior from "@/assets/clinic-exterior.jpg";
+import tourReception from "@/assets/reception.jpg";
+import tourPharmacy from "@/assets/pharmacy.jpg";
+import tourWard from "@/assets/ward.jpg";
+import tourMaternity from "@/assets/maternity-wing.jpg";
+import tourEntrance from "@/assets/clinic-entrance.jpg";
+import tourCorridor from "@/assets/corridor.jpg";
 import { useI18n } from "@/lib/i18n";
 import { Button } from "@/components/ui/button";
 import { services, doctors, testimonials, CLINIC } from "@/lib/clinic-data";
@@ -84,9 +90,9 @@ function HomePage() {
             <div className="relative overflow-hidden rounded-3xl shadow-[var(--shadow-elev)] ring-1 ring-primary/10">
               <img
                 src={heroImg}
-                alt="Doctor consulting a patient at Kijanaheri Medical Centre"
-                width={1536}
-                height={1024}
+                alt="Lab technician analysing samples at Kijanaheri Medical Centre"
+                width={960}
+                height={1280}
                 className="h-full w-full object-cover"
               />
             </div>
@@ -167,6 +173,39 @@ function HomePage() {
                   <div className="mt-2 text-sm font-medium text-primary">{d.specialty}</div>
                 </div>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Facility tour — real photos of the clinic */}
+      <section className="bg-background py-16 sm:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="max-w-2xl">
+            <span className="text-xs font-semibold uppercase tracking-wider text-primary">Take a look inside</span>
+            <h2 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">Our facility, at a glance</h2>
+            <p className="mt-2 text-muted-foreground">
+              From the reception desk to the maternity wing, every corner of Kijanaheri is built around safe, dignified care.
+            </p>
+          </div>
+          <div className="mt-8 grid auto-rows-[180px] grid-cols-2 gap-3 sm:auto-rows-[220px] sm:grid-cols-4 sm:gap-4">
+            {[
+              { src: tourReception, alt: "Reception and triage area", label: "Reception", span: "col-span-2 row-span-2" },
+              { src: tourMaternity, alt: "Fauzia maternity wing entrance", label: "Maternity wing" },
+              { src: tourPharmacy, alt: "On-site pharmacy counter", label: "Pharmacy" },
+              { src: tourWard, alt: "Clean inpatient ward with monitored beds", label: "Inpatient ward" },
+              { src: tourEntrance, alt: "Wheelchair-accessible main entrance", label: "Accessible entrance" },
+              { src: tourCorridor, alt: "Bright tiled patient corridor", label: "Patient corridor", span: "col-span-2" },
+            ].map((p) => (
+              <figure
+                key={p.label}
+                className={`group relative overflow-hidden rounded-2xl shadow-[var(--shadow-soft)] ring-1 ring-border ${p.span ?? ""}`}
+              >
+                <img src={p.src} alt={p.alt} loading="lazy" className="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+                <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background/90 to-transparent p-3 text-sm font-semibold text-foreground">
+                  {p.label}
+                </figcaption>
+              </figure>
             ))}
           </div>
         </div>
