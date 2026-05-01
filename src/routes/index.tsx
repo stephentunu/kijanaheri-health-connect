@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import heroImg from "@/assets/lab-tech.jpg";
+import heroImg from "@/assets/team/medical-team.jpg";
 import clinicExterior from "@/assets/clinic-exterior.jpg";
 import tourReception from "@/assets/reception.jpg";
 import tourPharmacy from "@/assets/pharmacy.jpg";
@@ -251,7 +251,7 @@ function HomePage() {
                 <Link to="/book">{t("cta.bookNow")}</Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="border-white/30 bg-white/10 text-white hover:bg-white/20">
-                <a href="tel:+254700000000"><Phone className="mr-1 h-4 w-4" />{t("cta.call")}</a>
+                <a href={`tel:${CLINIC.phone}`}><Phone className="mr-1 h-4 w-4" />{t("cta.call")}</a>
               </Button>
             </div>
           </div>
