@@ -28,12 +28,12 @@ function DoctorsPage() {
       <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {doctors.map((d) => (
           <article key={d.id} className="group overflow-hidden rounded-2xl border border-border bg-card shadow-[var(--shadow-soft)] transition hover:shadow-[var(--shadow-card)]">
-            <div className="aspect-[4/3] overflow-hidden bg-muted">
+            <div className="aspect-[3/4] overflow-hidden bg-muted">
               <img
                 src={d.photo}
                 alt={`Portrait of ${d.name}, ${d.specialty}`}
                 loading="lazy"
-                className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                className="h-full w-full object-cover object-top transition duration-500 group-hover:scale-105"
               />
             </div>
             <div className="p-6">
