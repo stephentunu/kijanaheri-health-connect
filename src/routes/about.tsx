@@ -199,7 +199,7 @@ function AboutPage() {
 
         <div className="mt-5 grid gap-4 sm:grid-cols-3 lg:gap-5">
           <TeamCard src={supportStaffImg} icon={ShieldCheck} eyebrow="Support" title="Support staff" body="Cleaning, security and logistics teams who keep the facility safe and spotless." />
-          <TeamCard src={communityHealthImg} icon={Users} eyebrow="Community health" title="Outreach" title2="" body="Community health workers extending care beyond our walls — under the Neli Juu programme." />
+          <TeamCard src={communityHealthImg} icon={Users} eyebrow="Community health" title="Community outreach" body="Community health workers extending care beyond our walls — under the Neli Juu programme." />
           <TeamCard src={fullStaffImg} icon={Award} eyebrow="One family" title="Kijanaheri family" body="Together — clinical, administrative and support staff — we are one team for our community." />
         </div>
 
@@ -236,7 +236,7 @@ function TeamCard({
   icon: React.ComponentType<{ className?: string }>;
   eyebrow: string;
   title: string;
-  title2?: string;
+  
   body: string;
   className?: string;
 }) {
