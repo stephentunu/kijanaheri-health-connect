@@ -1,8 +1,9 @@
 import { Stethoscope, Baby, FlaskConical, Pill, Smile, HeartPulse, type LucideIcon } from "lucide-react";
-import drNjeri from "@/assets/doctor-njeri.jpg";
-import drOtieno from "@/assets/doctor-otieno.jpg";
-import drWanjiku from "@/assets/doctor-wanjiku.jpg";
-import drKamau from "@/assets/doctor-kamau.jpg";
+import drBrian from "@/assets/team/dr-brian.jpg";
+import esther from "@/assets/team/esther-nyongesa.jpg";
+import zoril from "@/assets/team/zoril-herman.jpg";
+import james from "@/assets/team/james-orthopedic.jpg";
+import natasha from "@/assets/team/natasha-physio.jpg";
 import imgOutpatient from "@/assets/doctor-room.jpg";
 import imgMaternity from "@/assets/maternity-wing.jpg";
 import imgLab from "@/assets/lab-tech.jpg";
@@ -40,10 +41,11 @@ export interface Doctor {
 }
 
 export const doctors: Doctor[] = [
-  { id: "njeri", name: "Dr. Mary Njeri", title: "MBChB, MMed (Obs/Gyn)", specialty: "Maternity & Women's Health", serviceIds: ["maternity", "outpatient"], initials: "MN", bio: "12+ years caring for mothers and newborns along the Malindi-Lamu corridor.", photo: drNjeri },
-  { id: "otieno", name: "Dr. Brian Otieno", title: "MBChB", specialty: "General Practice", serviceIds: ["outpatient", "pediatrics"], initials: "BO", bio: "Family physician focused on preventive care and chronic disease management.", photo: drOtieno },
-  { id: "wanjiku", name: "Dr. Faith Wanjiku", title: "BDS", specialty: "Dental Surgery", serviceIds: ["dental"], initials: "FW", bio: "Restorative and cosmetic dentistry with a gentle approach.", photo: drWanjiku },
-  { id: "kamau", name: "Dr. Samuel Kamau", title: "MBChB, MMed (Paeds)", specialty: "Pediatrics", serviceIds: ["pediatrics", "outpatient"], initials: "SK", bio: "Caring for children from newborn to adolescence.", photo: drKamau },
+  { id: "brian", name: "Dr. Brian", title: "Medical Officer", specialty: "General Medicine & Outpatient Care", serviceIds: ["outpatient", "pediatrics"], initials: "DB", bio: "Medical officer leading day-to-day clinical care, diagnosis and treatment for patients of all ages.", photo: drBrian },
+  { id: "esther", name: "Esther Nyongesa", title: "Clinical Officer", specialty: "Outpatient & Primary Care", serviceIds: ["outpatient", "maternity"], initials: "EN", bio: "Clinical officer dedicated to compassionate primary care and patient-centred consultations.", photo: esther },
+  { id: "zoril", name: "Zoril Herman", title: "Clinical Officer", specialty: "Outpatient & Emergency", serviceIds: ["outpatient", "pediatrics"], initials: "ZH", bio: "Clinical officer with broad experience in outpatient consultations and emergency triage.", photo: zoril },
+  { id: "james", name: "James", title: "Orthopaedic Specialist", specialty: "Orthopaedics & Trauma", serviceIds: ["outpatient"], initials: "JM", bio: "Orthopaedic specialist managing fractures, joint care, sports injuries and musculoskeletal conditions.", photo: james },
+  { id: "natasha", name: "Natasha Tunje", title: "Physiotherapist", specialty: "Physiotherapy & Rehabilitation", serviceIds: ["outpatient"], initials: "NT", bio: "Physiotherapist helping patients restore movement, manage pain and recover after injury or surgery.", photo: natasha },
 ];
 
 export interface Testimonial {

@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { CLINIC } from "@/lib/clinic-data";
 import { Button } from "@/components/ui/button";
 import { Phone, MessageCircle, Mail, Award, Stethoscope, Quote, GraduationCap, Sparkles } from "lucide-react";
+import directorPhoto from "@/assets/team/director-mathole.jpg";
 
 export const Route = createFileRoute("/director")({
   head: () => ({
@@ -55,18 +56,19 @@ function DirectorPage() {
           <div className="relative">
             <div className="absolute -inset-4 -z-10 rounded-[2rem] bg-[image:var(--gradient-brand)] opacity-20 blur-2xl" />
             <div className="relative overflow-hidden rounded-3xl border border-border bg-card p-1 shadow-[var(--shadow-elev)]">
-              <div className="flex aspect-[4/5] w-full items-center justify-center rounded-[1.4rem] bg-[image:var(--gradient-brand)] text-white">
-                <div className="text-center">
-                  <div className="mx-auto flex h-28 w-28 items-center justify-center rounded-full bg-white/15 ring-4 ring-white/25 backdrop-blur">
-                    <span className="font-display text-4xl font-bold">DM</span>
-                  </div>
-                  <div className="mt-5 text-sm font-semibold uppercase tracking-[0.2em] opacity-90">
+              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[1.4rem] bg-muted">
+                <img
+                  src={directorPhoto}
+                  alt={`Portrait of ${CLINIC.director.name}, ${CLINIC.director.title} at ${CLINIC.name}`}
+                  className="h-full w-full object-cover object-top"
+                />
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-5 text-white">
+                  <div className="text-[11px] font-semibold uppercase tracking-[0.2em] opacity-90">
                     Facility Director
                   </div>
-                  <div className="mt-2 px-6 font-display text-2xl font-bold leading-tight">
-                    Dr. David Shungu Mathole
+                  <div className="mt-1 font-display text-xl font-bold leading-tight">
+                    {CLINIC.director.name}
                   </div>
-                  <div className="mt-3 text-xs opacity-80">Photo coming soon</div>
                 </div>
               </div>
             </div>
