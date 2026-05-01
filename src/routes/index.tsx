@@ -90,9 +90,9 @@ function HomePage() {
             <div className="relative overflow-hidden rounded-3xl shadow-[var(--shadow-elev)] ring-1 ring-primary/10">
               <img
                 src={heroImg}
-                alt="Lab technician analysing samples at Kijanaheri Medical Centre"
-                width={960}
-                height={1280}
+                alt="The clinical team at Kijanaheri Medical Centre"
+                width={1280}
+                height={960}
                 className="h-full w-full object-cover"
               />
             </div>
