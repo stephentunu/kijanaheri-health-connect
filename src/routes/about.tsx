@@ -1,10 +1,18 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ShieldCheck, HeartHandshake, Sparkles, Target, Eye, Lightbulb, Award, ScrollText } from "lucide-react";
+import { ShieldCheck, HeartHandshake, Sparkles, Target, Eye, Lightbulb, Award, ScrollText, Users, Ambulance, Stethoscope, ClipboardList } from "lucide-react";
 import clinicFront from "@/assets/clinic-front.jpg";
 import entranceImg from "@/assets/clinic-entrance.jpg";
 import receptionImg from "@/assets/reception.jpg";
 import wardImg from "@/assets/ward.jpg";
 import corridorImg from "@/assets/corridor.jpg";
+import nursesImg from "@/assets/team/nurses.jpg";
+import adminStaffImg from "@/assets/team/admin-staff.jpg";
+import supportStaffImg from "@/assets/team/support-staff.jpg";
+import medicalTeamImg from "@/assets/team/medical-team.jpg";
+import fullStaffImg from "@/assets/team/full-staff.jpg";
+import communityHealthImg from "@/assets/team/community-health.jpg";
+import ambulanceImg from "@/assets/team/ambulance.jpg";
+import ambulanceDriverImg from "@/assets/team/ambulance-driver.jpg";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
