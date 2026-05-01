@@ -164,8 +164,8 @@ function HomePage() {
                 key={d.id}
                 className="overflow-hidden rounded-2xl bg-background shadow-[var(--shadow-soft)] ring-1 ring-border transition hover:shadow-[var(--shadow-card)]"
               >
-                <div className="aspect-[4/3] overflow-hidden bg-muted">
-                  <img src={d.photo} alt={`Portrait of ${d.name}`} loading="lazy" className="h-full w-full object-cover" />
+                <div className="aspect-[3/4] overflow-hidden bg-muted">
+                  <img src={d.photo} alt={`Portrait of ${d.name}`} loading="lazy" className="h-full w-full object-cover object-top" />
                 </div>
                 <div className="p-5">
                   <div className="text-base font-semibold">{d.name}</div>
