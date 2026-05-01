@@ -1,10 +1,18 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ShieldCheck, HeartHandshake, Sparkles, Target, Eye, Lightbulb, Award, ScrollText } from "lucide-react";
+import { ShieldCheck, HeartHandshake, Sparkles, Target, Eye, Lightbulb, Award, ScrollText, Users, Ambulance, Stethoscope, ClipboardList } from "lucide-react";
 import clinicFront from "@/assets/clinic-front.jpg";
 import entranceImg from "@/assets/clinic-entrance.jpg";
 import receptionImg from "@/assets/reception.jpg";
 import wardImg from "@/assets/ward.jpg";
 import corridorImg from "@/assets/corridor.jpg";
+import nursesImg from "@/assets/team/nurses.jpg";
+import adminStaffImg from "@/assets/team/admin-staff.jpg";
+import supportStaffImg from "@/assets/team/support-staff.jpg";
+import medicalTeamImg from "@/assets/team/medical-team.jpg";
+import fullStaffImg from "@/assets/team/full-staff.jpg";
+import communityHealthImg from "@/assets/team/community-health.jpg";
+import ambulanceImg from "@/assets/team/ambulance.jpg";
+import ambulanceDriverImg from "@/assets/team/ambulance-driver.jpg";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -169,6 +177,82 @@ function AboutPage() {
           ))}
         </div>
       </section>
+
+      {/* Our Team */}
+      <section className="mt-16">
+        <div className="max-w-2xl">
+          <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary">
+            <Users className="h-3.5 w-3.5" /> Our team
+          </span>
+          <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">The people behind your care</h2>
+          <p className="mt-3 text-muted-foreground">
+            Doctors, clinical officers, nurses, administrators and support staff — every member of the
+            Kijanaheri family is committed to the same promise: safe, dignified, world-class care.
+          </p>
+        </div>
+
+        <div className="mt-8 grid gap-4 sm:grid-cols-6 sm:grid-rows-2 lg:gap-5">
+          <TeamCard className="sm:col-span-4 sm:row-span-2" src={medicalTeamImg} icon={Stethoscope} eyebrow="Clinical team" title="Doctors & clinical officers" body="A multidisciplinary team led by experienced clinicians delivering outpatient, maternity, dental, paediatric and specialist care." />
+          <TeamCard className="sm:col-span-2" src={nursesImg} icon={HeartHandshake} eyebrow="Nursing" title="Our nurses" body="Round-the-clock nursing care, triage and patient education." />
+          <TeamCard className="sm:col-span-2" src={adminStaffImg} icon={ClipboardList} eyebrow="Administration" title="Administrative staff" body="Reception, billing and patient coordination — keeping everything running smoothly." />
+        </div>
+
+        <div className="mt-5 grid gap-4 sm:grid-cols-3 lg:gap-5">
+          <TeamCard src={supportStaffImg} icon={ShieldCheck} eyebrow="Support" title="Support staff" body="Cleaning, security and logistics teams who keep the facility safe and spotless." />
+          <TeamCard src={communityHealthImg} icon={Users} eyebrow="Community health" title="Community outreach" body="Community health workers extending care beyond our walls — under the Neli Juu programme." />
+          <TeamCard src={fullStaffImg} icon={Award} eyebrow="One family" title="Kijanaheri family" body="Together — clinical, administrative and support staff — we are one team for our community." />
+        </div>
+
+        {/* Ambulance highlight */}
+        <div className="mt-10 overflow-hidden rounded-3xl border border-border bg-card shadow-[var(--shadow-soft)]">
+          <div className="grid gap-0 md:grid-cols-2">
+            <div className="relative aspect-[4/3] overflow-hidden bg-muted md:aspect-auto">
+              <img src={ambulanceImg} alt="Kijanaheri Medical Centre ambulance" className="h-full w-full object-cover" loading="lazy" />
+            </div>
+            <div className="flex flex-col justify-center p-8 sm:p-10">
+              <span className="inline-flex w-fit items-center gap-2 rounded-full bg-destructive/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-destructive">
+                <Ambulance className="h-3.5 w-3.5" /> 24/7 Ambulance service
+              </span>
+              <h3 className="mt-3 text-2xl font-bold tracking-tight sm:text-3xl">Emergency response, on call</h3>
+              <p className="mt-3 text-muted-foreground">
+                Our fully-equipped ambulance and trained crew are ready around the clock to bring patients to
+                Kijanaheri quickly and safely from anywhere along the Malindi-Lamu corridor.
+              </p>
+              <div className="mt-5 overflow-hidden rounded-2xl ring-1 ring-border">
+                <img src={ambulanceDriverImg} alt="Ambulance driver and crew at Kijanaheri Medical Centre" className="h-40 w-full object-cover" loading="lazy" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
+  );
+}
+
+function TeamCard({
+  src, icon: Icon, eyebrow, title, body, className = "",
+}: {
+  src: string;
+  icon: React.ComponentType<{ className?: string }>;
+  eyebrow: string;
+  title: string;
+  
+  body: string;
+  className?: string;
+}) {
+  return (
+    <figure className={`group relative overflow-hidden rounded-2xl shadow-[var(--shadow-soft)] ring-1 ring-border ${className}`}>
+      <div className="aspect-[4/3] h-full w-full overflow-hidden bg-muted">
+        <img src={src} alt={title} loading="lazy" className="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+      </div>
+      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent" />
+      <figcaption className="absolute inset-x-0 bottom-0 p-5 text-white">
+        <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] opacity-90">
+          <Icon className="h-3.5 w-3.5" /> {eyebrow}
+        </div>
+        <div className="mt-1 font-display text-lg font-bold leading-tight sm:text-xl">{title}</div>
+        <p className="mt-1 hidden text-sm text-white/85 sm:block">{body}</p>
+      </figcaption>
+    </figure>
   );
 }
