@@ -4,6 +4,7 @@ import esther from "@/assets/team/esther-nyongesa.jpg";
 import zoril from "@/assets/team/zoril-herman.jpg";
 import james from "@/assets/team/james-orthopedic.jpg";
 import natasha from "@/assets/team/natasha-physio.jpg";
+import nutritionist from "@/assets/team/nutritionist.jpg";
 import imgOutpatient from "@/assets/doctor-room.jpg";
 import imgMaternity from "@/assets/maternity-wing.jpg";
 import imgLab from "@/assets/lab-tech.jpg";
@@ -46,6 +47,7 @@ export const doctors: Doctor[] = [
   { id: "zoril", name: "Zoril Herman", title: "Clinical Officer", specialty: "Outpatient & Emergency", serviceIds: ["outpatient", "pediatrics"], initials: "ZH", bio: "Clinical officer with broad experience in outpatient consultations and emergency triage.", photo: zoril },
   { id: "james", name: "James", title: "Orthopaedic Specialist", specialty: "Orthopaedics & Trauma", serviceIds: ["outpatient"], initials: "JM", bio: "Orthopaedic specialist managing fractures, joint care, sports injuries and musculoskeletal conditions.", photo: james },
   { id: "natasha", name: "Natasha Tunje", title: "Physiotherapist", specialty: "Physiotherapy & Rehabilitation", serviceIds: ["outpatient"], initials: "NT", bio: "Physiotherapist helping patients restore movement, manage pain and recover after injury or surgery.", photo: natasha },
+  { id: "nutritionist", name: "Our Nutritionist", title: "Nutritionist", specialty: "Nutrition & Dietetics", serviceIds: ["outpatient", "maternity"], initials: "NU", bio: "Nutritionist providing dietary assessments, meal planning and nutrition counselling for families, mothers and patients with chronic conditions.", photo: nutritionist },
 ];
 
 export interface Testimonial {
