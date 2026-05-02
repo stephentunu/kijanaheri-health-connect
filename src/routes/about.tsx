@@ -243,7 +243,7 @@ function TeamCard({
   return (
     <figure className={`group relative overflow-hidden rounded-2xl shadow-[var(--shadow-soft)] ring-1 ring-border ${className}`}>
       <div className="aspect-[4/3] h-full w-full overflow-hidden bg-muted">
-        <img src={src} alt={title} loading="lazy" className="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+        <img src={src} alt={title} loading="lazy" className="h-full w-full object-cover object-top transition duration-500 group-hover:scale-105" />
       </div>
       <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent" />
       <figcaption className="absolute inset-x-0 bottom-0 p-5 text-white">
