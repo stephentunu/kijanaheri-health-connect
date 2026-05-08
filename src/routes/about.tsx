@@ -14,14 +14,14 @@ import communityHealthImg from "@/assets/team/community-health.jpg";
 import ambulanceImg from "@/assets/team/ambulance.jpg";
 import ambulanceDriverImg from "@/assets/team/ambulance-driver.jpg";
 
+import { buildSeo } from "@/lib/seo";
+
 export const Route = createFileRoute("/about")({
-  head: () => ({
-    meta: [
-      { title: "About | Kijanaheri Medical Centre" },
-      { name: "description", content: "Our mission, values, and commitment to quality healthcare in Kenya." },
-      { property: "og:title", content: "About Kijanaheri Medical Centre" },
-      { property: "og:description", content: "Our mission, values, and commitment to quality healthcare in Kenya." },
-    ],
+  head: () => buildSeo({
+    title: "About Us | Kijanaheri Medical Centre",
+    description: "Our mission, values, and commitment to quality, compassionate healthcare for families on the Malindi-Lamu corridor.",
+    path: "/about",
+    image: clinicFront,
   }),
   component: AboutPage,
 });

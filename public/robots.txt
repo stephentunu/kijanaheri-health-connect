@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://kijanaheri-medical.com/sitemap.xml
+Sitemap: https://kijanaheri.com/sitemap.xml

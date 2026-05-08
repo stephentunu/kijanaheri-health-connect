@@ -12,6 +12,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Calendar } from "@/components/ui/calendar";
 import { Check, ChevronLeft, ChevronRight, CalendarDays, Clock, User, Smartphone, Sparkles, Banknote } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { buildSeo } from "@/lib/seo";
+import { supabase } from "@/integrations/supabase/client";
 
 const searchSchema = z.object({
   service: z.string().optional(),
@@ -20,13 +22,10 @@ const searchSchema = z.object({
 
 export const Route = createFileRoute("/book")({
   validateSearch: (s) => searchSchema.parse(s),
-  head: () => ({
-    meta: [
-      { title: "Book an appointment | Kijanaheri Medical Centre" },
-      { name: "description", content: "Book your medical appointment online in under a minute. Choose service, doctor, date and time." },
-      { property: "og:title", content: "Book an appointment — Kijanaheri Medical Centre" },
-      { property: "og:description", content: "Quick, easy online booking with confirmation in minutes." },
-    ],
+  head: () => buildSeo({
+    title: "Book an Appointment | Kijanaheri Medical Centre",
+    description: "Book your medical appointment online in under a minute. Choose a service, doctor, date and time. M-Pesa friendly.",
+    path: "/book",
   }),
   component: BookPage,
 });
@@ -105,7 +104,27 @@ function BookPage() {
   };
   const back = () => setStep((s) => Math.max(0, (s - 1)) as Step);
 
-  const submit = () => {
+  const [submitting, setSubmitting] = useState(false);
+
+  const submit = async () => {
+    if (!state.serviceId || !state.date || !state.time || !state.payment) return;
+    setSubmitting(true);
+    const { error } = await supabase.from("appointments").insert({
+      service_id: state.serviceId,
+      doctor_id: state.doctorId,
+      appointment_date: format(state.date, "yyyy-MM-dd"),
+      appointment_time: state.time,
+      patient_name: state.name.trim(),
+      patient_phone: state.phone.trim(),
+      patient_email: state.email.trim() || null,
+      notes: state.notes.trim() || null,
+      payment_method: state.payment,
+    });
+    setSubmitting(false);
+    if (error) {
+      toast.error("Could not save your appointment", { description: error.message });
+      return;
+    }
     toast.success(t("book.success"), { description: t("book.successDesc") });
     setStep(5);
   };
@@ -138,8 +157,8 @@ function BookPage() {
               <ChevronLeft className="mr-1 h-4 w-4" /> {t("book.back")}
             </Button>
             {step === 4 ? (
-              <Button onClick={submit} disabled={!canContinue()} className="bg-primary text-primary-foreground hover:bg-[var(--primary-hover)]">
-                {t("book.confirm")} <Check className="ml-1 h-4 w-4" />
+              <Button onClick={submit} disabled={!canContinue() || submitting} className="bg-primary text-primary-foreground hover:bg-[var(--primary-hover)]">
+                {submitting ? "Saving…" : t("book.confirm")} <Check className="ml-1 h-4 w-4" />
               </Button>
             ) : (
               <Button onClick={next} disabled={!canContinue()} className="bg-primary text-primary-foreground hover:bg-[var(--primary-hover)]">

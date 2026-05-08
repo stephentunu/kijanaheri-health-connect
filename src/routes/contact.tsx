@@ -3,14 +3,14 @@ import { CLINIC } from "@/lib/clinic-data";
 import { Phone, Mail, MapPin, MessageCircle, Clock } from "lucide-react";
 import clinicFront from "@/assets/clinic-front.jpg";
 
+import { buildSeo } from "@/lib/seo";
+
 export const Route = createFileRoute("/contact")({
-  head: () => ({
-    meta: [
-      { title: "Contact | Kijanaheri Medical Centre" },
-      { name: "description", content: "Visit, call or message Kijanaheri Medical Centre on Malindi-Lamu Road. Open 24/7 for emergencies." },
-      { property: "og:title", content: "Contact Kijanaheri Medical Centre" },
-      { property: "og:description", content: "Reach us by phone, WhatsApp, or visit our clinic on Malindi-Lamu Road." },
-    ],
+  head: () => buildSeo({
+    title: "Contact Us | Kijanaheri Medical Centre",
+    description: "Visit, call or WhatsApp Kijanaheri Medical Centre on Malindi-Lamu Road. Open 24/7 for emergencies.",
+    path: "/contact",
+    image: clinicFront,
   }),
   component: ContactPage,
 });
