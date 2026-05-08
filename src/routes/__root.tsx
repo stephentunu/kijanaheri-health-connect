@@ -37,6 +37,20 @@ function NotFoundComponent() {
 }
 
 export const Route = createRootRoute({
+  head: () => ({
+    meta: [
+      { name: "robots", content: "index,follow" },
+      { name: "author", content: "Kijanaheri Medical Centre" },
+      { name: "geo.region", content: "KE" },
+      { name: "geo.placename", content: "Malindi, Kenya" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:site", content: "@kijanaheri" },
+    ],
+    links: [
+      { rel: "icon", href: "/favicon.ico" },
+      { rel: "apple-touch-icon", href: "/favicon.ico" },
+    ],
+  }),
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
 });
