@@ -11,14 +11,35 @@ import { useI18n } from "@/lib/i18n";
 import { Button } from "@/components/ui/button";
 import { services, doctors, testimonials, CLINIC } from "@/lib/clinic-data";
 import { ArrowRight, ShieldCheck, Clock, Award, Phone, Star, AlertCircle } from "lucide-react";
+import { buildSeo, SITE } from "@/lib/seo";
+
+const HOME_JSONLD = {
+  "@context": "https://schema.org",
+  "@type": "MedicalClinic",
+  name: "Kijanaheri Medical Centre",
+  url: SITE.url,
+  image: `${SITE.url}${clinicExterior}`,
+  telephone: "+254 700 000 000",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Malindi-Lamu Road",
+    addressLocality: "Malindi",
+    addressCountry: "KE",
+  },
+  openingHours: "Mo-Su 00:00-23:59",
+  medicalSpecialty: ["Outpatient", "Maternity", "Pediatrics", "Dental", "Laboratory", "Pharmacy"],
+};
 
 export const Route = createFileRoute("/")({
   head: () => ({
-    meta: [
-      { title: "Kijanaheri Medical Centre | Quality healthcare in Kenya" },
-      { name: "description", content: "Outpatient, maternity, laboratory and more. Book online in under a minute with trusted clinicians." },
-      { property: "og:title", content: "Kijanaheri Medical Centre" },
-      { property: "og:description", content: "Quality healthcare for every Kenyan family." },
+    ...buildSeo({
+      title: "Kijanaheri Medical Centre | Quality healthcare in Kenya",
+      description: "Outpatient, maternity, laboratory, dental and pediatrics on Malindi-Lamu Road. Book online in under a minute with trusted Kenyan clinicians.",
+      path: "/",
+      image: clinicExterior,
+    }),
+    scripts: [
+      { type: "application/ld+json", children: JSON.stringify(HOME_JSONLD) },
     ],
   }),
   component: HomePage,

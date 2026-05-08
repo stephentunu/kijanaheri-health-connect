@@ -20,13 +20,10 @@ const searchSchema = z.object({
 
 export const Route = createFileRoute("/book")({
   validateSearch: (s) => searchSchema.parse(s),
-  head: () => ({
-    meta: [
-      { title: "Book an appointment | Kijanaheri Medical Centre" },
-      { name: "description", content: "Book your medical appointment online in under a minute. Choose service, doctor, date and time." },
-      { property: "og:title", content: "Book an appointment — Kijanaheri Medical Centre" },
-      { property: "og:description", content: "Quick, easy online booking with confirmation in minutes." },
-    ],
+  head: () => buildSeo({
+    title: "Book an Appointment | Kijanaheri Medical Centre",
+    description: "Book your medical appointment online in under a minute. Choose a service, doctor, date and time. M-Pesa friendly.",
+    path: "/book",
   }),
   component: BookPage,
 });

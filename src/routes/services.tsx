@@ -3,14 +3,13 @@ import { useI18n } from "@/lib/i18n";
 import { services } from "@/lib/clinic-data";
 import { ArrowRight } from "lucide-react";
 
+import { buildSeo } from "@/lib/seo";
+
 export const Route = createFileRoute("/services")({
-  head: () => ({
-    meta: [
-      { title: "Services | Kijanaheri Medical Centre" },
-      { name: "description", content: "Outpatient, maternity, laboratory, dental, pediatrics and pharmacy services on Malindi-Lamu Road." },
-      { property: "og:title", content: "Our Services — Kijanaheri Medical Centre" },
-      { property: "og:description", content: "Comprehensive outpatient and specialist care under one roof." },
-    ],
+  head: () => buildSeo({
+    title: "Our Services | Kijanaheri Medical Centre",
+    description: "Outpatient, maternity, laboratory, dental, pediatrics and pharmacy services on Malindi-Lamu Road. Affordable, quality care.",
+    path: "/services",
   }),
   component: ServicesPage,
 });

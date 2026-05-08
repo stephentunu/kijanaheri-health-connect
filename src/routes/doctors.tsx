@@ -3,14 +3,13 @@ import { doctors, services } from "@/lib/clinic-data";
 import { useI18n } from "@/lib/i18n";
 import { Button } from "@/components/ui/button";
 
+import { buildSeo } from "@/lib/seo";
+
 export const Route = createFileRoute("/doctors")({
-  head: () => ({
-    meta: [
-      { title: "Our Doctors | Kijanaheri Medical Centre" },
-      { name: "description", content: "Meet our board-certified doctors specializing in maternity, pediatrics, dental and general practice." },
-      { property: "og:title", content: "Meet our doctors — Kijanaheri Medical Centre" },
-      { property: "og:description", content: "Board-certified specialists committed to your wellbeing." },
-    ],
+  head: () => buildSeo({
+    title: "Our Doctors | Kijanaheri Medical Centre",
+    description: "Meet our board-certified clinicians specializing in maternity, pediatrics, dental, orthopedics, physiotherapy and nutrition.",
+    path: "/doctors",
   }),
   component: DoctorsPage,
 });

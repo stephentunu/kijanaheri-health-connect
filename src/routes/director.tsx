@@ -4,14 +4,15 @@ import { Button } from "@/components/ui/button";
 import { Phone, MessageCircle, Mail, Award, Stethoscope, Quote, GraduationCap, Sparkles } from "lucide-react";
 import directorPhoto from "@/assets/team/director-mathole.jpg";
 
+import { buildSeo } from "@/lib/seo";
+
 export const Route = createFileRoute("/director")({
-  head: () => ({
-    meta: [
-      { title: "Facility Director — Dr. David Shungu Mathole | Kijanaheri Medical Centre" },
-      { name: "description", content: "Meet Dr. David Shungu Mathole, Facility Director of Kijanaheri Medical Centre, leading our mission of innovative, compassionate healthcare." },
-      { property: "og:title", content: "Dr. David Shungu Mathole — Facility Director" },
-      { property: "og:description", content: "Leading Kijanaheri Medical Centre with a vision for ultra-modern, patient-centered care along the Malindi-Lamu corridor." },
-    ],
+  head: () => buildSeo({
+    title: "Facility Director — Dr. David Shungu Mathole | Kijanaheri Medical Centre",
+    description: "Meet Dr. David Shungu Mathole, Facility Director of Kijanaheri Medical Centre, leading our mission of innovative, compassionate healthcare.",
+    path: "/director",
+    image: directorPhoto,
+    type: "profile",
   }),
   component: DirectorPage,
 });
