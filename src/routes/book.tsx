@@ -12,6 +12,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Calendar } from "@/components/ui/calendar";
 import { Check, ChevronLeft, ChevronRight, CalendarDays, Clock, User, Smartphone, Sparkles, Banknote } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { buildSeo } from "@/lib/seo";
 
 const searchSchema = z.object({
   service: z.string().optional(),
